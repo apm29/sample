@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+<div id="loading-view" style="width: 100%;height: 100%;position: absolute;top:0;left: 0">
+    <div class="loader">
+        <div class="outer"></div>
+        <div class="middle"></div>
+        <div class="inner"></div>
+    </div>
+</div>
+<noscript>
+    <strong> <%= htmlWebpackPlugin.options.title %> 需要启用JavaScript才能使用</strong>
+</noscript>
+<div id="app"></div>
+<script>
+  const elementById = document.getElementById('loading-view')
+  if (elementById) {
+    setTimeout(() => {
+      elementById.style.opacity = '0'
+    }, 400)
+    setTimeout(() => {
+      elementById.remove()
+    }, 1200)
+  }
+</script>
+<style>
+    body, html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .loader {
+        position: relative;
+        top: 40%;
+    }
+
+    .outer,
+    .middle,
+    .inner {
+        border: 3px solid transparent;
+        border-top-color: #6a2696;
+        border-right-color: #8f288a;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    .outer {
+        width: 3.5em;
+        height: 3.5em;
+        margin-left: -1.75em;
+        margin-top: -1.75em;
+        animation: linear 2s spin infinite;
+    }
+
+    .middle {
+        width: 2.1em;
+        height: 2.1em;
+        margin-left: -1.05em;
+        margin-top: -1.05em;
+        animation: linear 1.75s spin reverse infinite;
+    }
+
+    .inner {
+        width: 0.8em;
+        height: 0.8em;
+        margin-left: -0.4em;
+        margin-top: -0.4em;
+        animation: spin 1.5s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    #loading-view {
+        transition: all 0.8s linear;
+    }
+</style>
+<!-- built files will be auto injected -->
+</body>
+</html>

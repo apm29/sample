@@ -1,0 +1,21 @@
+#app {
+    @apply h-100vh m-0 p-0;
+}
+.scroll-bar {
+    @apply scrollbar-thin
+    scrollbar-thumb-gray-300
+    scrollbar-track-gray-100
+    scrollbar-thumb-rounded;
+}
+button {
+    @apply focus:outline-none !important;
+}
+
+.animate-shine {
+    animation: 1.2s linear 0.6s shine;
+}
+@keyframes shine {
+    30% {
+        @apply bg-red-300 bg-opacity-30;
+    }
+}
